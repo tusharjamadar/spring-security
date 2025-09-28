@@ -1,5 +1,6 @@
 package com.codingshuttle.youtube.hospitalManagement.entity;
 
+import com.codingshuttle.youtube.hospitalManagement.entity.type.AuthProviderType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -14,7 +15,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "userTbl")
+@Table(name = "userTbl", indexes = {
+        @Index(name = "idx_provider_id_provider_type", columnList = "providerId, providerType")
+})
 public class User implements UserDetails {
 
     @Id
@@ -25,6 +28,10 @@ public class User implements UserDetails {
     private String username;
 
     private String password;
+    private String providerId;
+
+    @Enumerated(EnumType.STRING)
+    private AuthProviderType providerType;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
