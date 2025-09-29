@@ -8,8 +8,8 @@ spring:
         user-name-attribute: id
     registration:
       google:
-        client-id: 180911906346-mo9hd56qs3un5b38u7n7o4170omjbrp1.apps.googleusercontent.com
-        client-secret: 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
+        client-id: 180911906346-asfas.apps.googleusercontent.com
+        client-secret: GOCSPX-asdf
       github:
         client-id: aasdfasdf
         client-secret: adfasf
